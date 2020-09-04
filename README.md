@@ -25,7 +25,7 @@
 ## Usage
 
    ### Define a new Point object
-   Warning: import from cluster not java.awt!
+   > **Warning:** Don't import **Point** from java.awt!
    
     Point point = new Point(38.021332, 23.798630);
       

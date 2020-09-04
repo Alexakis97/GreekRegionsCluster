@@ -4,7 +4,7 @@
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 
-## prerequisites
+## Prerequisites
 
    ### Include the JSON dependancy
     <dependency>
@@ -18,7 +18,7 @@
       <artifactId>clustering</artifactId>
       <version>1.1.3</version>
     </dependency>
-## usage
+## Usage
 
    ### Define a new Point object
    Warning: import from cluster not java.awt!

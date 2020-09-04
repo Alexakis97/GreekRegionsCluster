@@ -1,3 +1,4 @@
+
 package cluster;
 
 import java.io.File;
@@ -8,61 +9,89 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Cluster.
+ */
 public class Cluster {
 
-		
-	HashMap<String,ArrayList<Boundary>> map;
-	
-	   private static Cluster instance = new Cluster();
-	
-	private Cluster ()
-	{
-		System.out.println("Cluster Created");
+	/** The map. */
+	HashMap<String, ArrayList<Boundary>> map;
 
+	HashMap<String, String> translate;
+
+	/** The instance. */
+	private static Cluster instance = new Cluster();
+
+	/**
+	 * Instantiates a new cluster.
+	 */
+	private Cluster() {
+		System.out.println("Cluster Created");
+		translate = new HashMap();
+		translate.put("Π. ΑΝΑΤΟΛΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ - ΘΡΑΚΗΣ", "P. Anatolikis Makedonias - Thrakis");
+		translate.put("Π. ΚΕΝΤΡΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ", "P. Kentrikis Makedonias");
+		translate.put("Π. ΔΥΤΙΚΗΣ ΜΑΚΕΔΟΝΙΑΣ", "P. Dytikis Makedonias");
+		translate.put("Π. ΗΠΕΙΡΟΥ", "P. Hpeirou");
+		translate.put("Π. ΘΕΣΣΑΛΙΑΣ", "P. Thessalias");
+		translate.put("Π. ΒΟΡΕΙΟΥ ΑΙΓΑΙΟΥ", "P. Boreiou Aigaiou");
+		translate.put("Π. ΝΟΤΙΟΥ ΑΙΓΑΙΟΥ", "P. Notiou Aigaiou");
+		translate.put("Π. ΣΤΕΡΕΑΣ ΕΛΛΑΔΑΣ", "P. Stereas Elladas");
+		translate.put("Π. ΔΥΤΙΚΗΣ ΕΛΛΑΔΑΣ", "P. Dytikis Elladas");
+		translate.put("Π. ΠΕΛΟΠΟΝΝΗΣΟΥ", "P. Peloponnisou");
+		translate.put("Π. ΙΟΝΙΩΝ ΝΗΣΩΝ", "P. Ionion Nison");
+		translate.put("Π. ΚΡΗΤΗΣ", "P. Kritis");
+		translate.put("Π. ΑΤΤΙΚΗΣ", "P. Attikis");
 	}
-	
-	public static Cluster getInstance(){
-	      return instance;
-	   }
-	
-	
-	public boolean loadCluster()
-	{
-		String path = "Periferies-LatLong.json";
+
+	/**
+	 * Gets the single instance of Cluster.
+	 *
+	 * @return single instance of Cluster
+	 */
+	public static Cluster getInstance() {
+		return instance;
+	}
+
+	/**
+	 * First step is to load the Cluster.
+	 *
+	 * @return true, if successful
+	 */
+	public boolean loadCluster() {
+		String path = "META-INF/Periferies-LatLong.json";
 		JSONObject allData;
 		try {
-		InputStream inputStream = null;
-		Scanner sc = null;
-		StringBuilder data = new StringBuilder();
-		try {
-			inputStream = getClass().getResourceAsStream(path);
-			sc = new Scanner(inputStream, "UTF-8");
-			while (sc.hasNextLine()) {
-				String line = sc.nextLine();
-				data.append(line);
-				// System.out.println(line);
-			}
-			// note that Scanner suppresses exceptions
-			if (sc.ioException() != null) {
-				throw sc.ioException();
-			}
-		} finally {
-			if (inputStream != null) {
-				inputStream.close();
-			}
-			if (sc != null) {
-				sc.close();
-			}
-			System.out.println("Cluster ready to be used");
-			allData = new JSONObject(data.toString());
+			InputStream inputStream = null;
+			Scanner sc = null;
+			StringBuilder data = new StringBuilder();
+			try {
+				inputStream = this.getClass().getClassLoader().getResourceAsStream(path);
+				sc = new Scanner(inputStream, "UTF-8");
+				while (sc.hasNextLine()) {
+					String line = sc.nextLine();
+					data.append(line);
+					// System.out.println(line);
+				}
+				// note that Scanner suppresses exceptions
+				if (sc.ioException() != null) {
+					throw sc.ioException();
+				}
+			} finally {
+				if (inputStream != null) {
+					inputStream.close();
+				}
+				if (sc != null) {
+					sc.close();
+				}
+				System.out.println("Cluster ready to be used");
+				allData = new JSONObject(data.toString());
 
-		}
-		}catch(Exception e)
-		{
+			}
+		} catch (Exception e) {
 			System.out.print(e);
 			return false;
 		}
@@ -71,7 +100,6 @@ public class Cluster {
 
 		JSONArray features = (JSONArray) allData.get("features");
 
-		
 		map = new HashMap();
 
 		for (Object periferies : features) {
@@ -90,7 +118,7 @@ public class Cluster {
 				JSONArray incoord = (JSONArray) insideCoord;
 
 				JSONArray zeroCoord = (JSONArray) incoord.get(0);
-				
+
 				Boundary boundary = new Boundary();
 				boundary.initPointSize(zeroCoord.length());
 				for (Object boun : zeroCoord) {
@@ -102,45 +130,48 @@ public class Cluster {
 					Point p = new Point(x, y);
 
 					boundary.loadPoint(p);
-					
+
 					// System.out.println(p);
 
 				}
 				b.add(boundary);
-				
 
 			}
 			map.put(onomasiaPeriferias, b);
 		}
 		return true;
 	}
-	
-	public String getClusterFeature(Point p)
-	{
-		
-		 Iterator it = map.entrySet().iterator();
-		    while (it.hasNext()) {
-		        Map.Entry pair = (Map.Entry)it.next();
-		        
-		        ArrayList<Boundary> temp = (ArrayList<Boundary>) pair.getValue();
-		        
-		       	for(Boundary bound:temp)
-		        	{
-		        		if(bound.contains(p))
-		        			return  (String) pair.getKey();
-		        		
-		        	
-		        	}
-		        
-		    }
-			return null;	
+
+	/**
+	 * Returns the String where the Point p was found.
+	 *
+	 * @param p    the p
+	 * @param lang , if the values is en, the returned string will be in English
+	 *             language
+	 * @return String
+	 */
+	public String getClusterFeature(Point p, String lang) {
+
+		Iterator it = map.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry pair = (Map.Entry) it.next();
+
+			ArrayList<Boundary> temp = (ArrayList<Boundary>) pair.getValue();
+
+			for (Boundary bound : temp) {
+				if (bound.contains(p)) {
+
+					if (lang.equalsIgnoreCase("en")) {
+						return translate.get((String) pair.getKey());
+					} else {
+						return (String) pair.getKey();
+					}
+				}
+
+			}
+
+		}
+		return null;
 	}
-	
-	
-	
-	
-	
 
 }
-
-

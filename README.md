@@ -18,7 +18,7 @@
     <dependency>
       <groupId>com.github.alexakis97</groupId>
       <artifactId>clustering</artifactId>
-      <version>1.1.3</version>
+      <version>1.1.4</version>
     </dependency>
 ## Usage
 

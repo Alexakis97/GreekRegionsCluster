@@ -12,6 +12,12 @@
 	   <artifactId>json</artifactId>
 	   <version>20200518</version>
     </dependency>
+   ### Include the Cluster dependancy
+    <dependency>
+      <groupId>com.github.alexakis97</groupId>
+      <artifactId>clustering</artifactId>
+      <version>1.1.3</version>
+    </dependency>
 ## usage
 
    ### Define a new Point object

@@ -38,3 +38,4 @@
     System.out.println(temp.getClusterFeature(point,"en"));
     
   The feature is returned as a String, with the extra param you can define the language, currently only "gr" and "en" are supported
+

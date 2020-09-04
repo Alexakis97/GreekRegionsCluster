@@ -14,15 +14,19 @@
     </dependency>
 ## usage
 
-   ### get the instance & load the cluser
+   ### Define a new Point object
+   
+    Point point = new Point(38.021332, 23.798630);
+      
+   ### Get the instance & load the cluser
  
     Cluster cluster = Cluster.getInstance();
     cluster.loadCluster();
     
-   ### define a new Point object
-   
-      Point point = new Point(38.021332, 23.798630);
+  
       
-   ### get the feature
+   ### Get the feature
     System.out.println(temp.getClusterFeature(point,"en"));
+    
+  The feature is returned as a String, with the extra param you can define the language, currently only "gr" and "en" are supported
 

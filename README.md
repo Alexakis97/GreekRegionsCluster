@@ -1,5 +1,5 @@
 # GreekRegionsCluster
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.alexakis97/clustering/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.github.alexakis97/clustering)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.alexakis97/clustering.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.alexakis97%22%20AND%20a:%22clustering%22)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat)]()
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
@@ -16,12 +16,24 @@
     </dependency>
     
  -->
-   ### Include the Cluster dependancy
+   ### Include dependancy
+   
+   ##Maven
+   
     <dependency>
       <groupId>com.github.alexakis97</groupId>
       <artifactId>clustering</artifactId>
       <version>1.1.4</version>
     </dependency>
+    
+   ##Gradle Groovy
+   
+    implementation 'com.github.alexakis97:clustering:1.1.4'
+    
+   ##Grade Kotlin
+   
+    implementation("com.github.alexakis97:clustering:1.1.4")
+  
 ## Usage
 
    ### Define a new Point object

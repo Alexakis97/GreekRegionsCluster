@@ -16,7 +16,7 @@
     </dependency>
     
  -->
-   ### Include dependancy
+   ### Include the dependancy
    
    ## Maven
    

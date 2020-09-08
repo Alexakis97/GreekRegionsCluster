@@ -30,7 +30,7 @@
    
     implementation 'com.github.alexakis97:clustering:1.1.4'
     
-   For more usages please refer [here](https://search.maven.org/artifact/com.github.alexakis97/clustering/1.1.4/jar)
+   For more types of dependancies please refer [here](https://search.maven.org/artifact/com.github.alexakis97/clustering/1.1.4/jar)
   
 ## Usage
 

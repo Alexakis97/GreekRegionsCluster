@@ -2,7 +2,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.alexakis97/clustering.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.alexakis97%22%20AND%20a:%22clustering%22)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat)]()
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me', '#857ea6', 'E1E61NOU4');kofiwidget2.draw();</script> 
+
 ![alt text](https://www.map-of-greece.org/greece-map-800.jpg)
 
 

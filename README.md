@@ -18,7 +18,7 @@
  -->
    ### Include dependancy
    
-   ##Maven
+   ## Maven
    
     <dependency>
       <groupId>com.github.alexakis97</groupId>
@@ -26,13 +26,11 @@
       <version>1.1.4</version>
     </dependency>
     
-   ##Gradle Groovy
+   ## Gradle Groovy
    
     implementation 'com.github.alexakis97:clustering:1.1.4'
     
-   ##Grade Kotlin
-   
-    implementation("com.github.alexakis97:clustering:1.1.4")
+   For more usages please refer [here](https://search.maven.org/artifact/com.github.alexakis97/clustering/1.1.4/jar)
   
 ## Usage
 
